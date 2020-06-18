@@ -30,15 +30,15 @@ export const ApplicationTiles = ({applications, syncApplication, refreshApplicat
                     applications-list__entry--health-${app.status.health.status}`}>
                             <div className='row' onClick={e => ctx.navigation.goto(`/applications/${app.metadata.name}`, {}, {event: e})}>
                                 <div className='columns small-12 applications-list__info'>
-                                    <div className='applications-list__external-link'>
-                                        <ApplicationURLs urls={app.status.summary.externalURLs} />
-                                    </div>
-                                    <div className='row'>
-                                        <div className='columns applications-list__title'>{app.metadata.name}</div>
+                                    <div className='columns applications-list__title'>{app.metadata.name}</div>
                                         <div className='columns small-9'>
                                             <i className={'icon argo-icon-' + (app.spec.source.chart != null ? 'helm' : 'git')} />
                                         </div>
                                     </div>
+                                    <div className='applications-list__external-link'>
+                                        <ApplicationURLs urls={app.status.summary.externalURLs} />
+                                    </div>
+                                    <div className='row'>
                                     <div className='row'>
                                         <div className='columns small-3'>Project:</div>
                                         <div className='columns small-9'>{app.spec.project}</div>
